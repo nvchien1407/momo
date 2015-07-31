@@ -9,9 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import com.momo.domain.ProductDo;
 import com.momo.service.interfaces.TestService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 @RestController
 public class MainController {
     private TestService testService = null;
+    private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
     
     @Autowired
     public MainController(TestService testService) {
@@ -19,13 +22,14 @@ public class MainController {
     }
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public ModelAndView getdata() throws Exception {
+	public ModelAndView getData() throws Exception {
 		ModelAndView model = new ModelAndView("index");
 		try {
 			List<ProductDo> list = testService.getList();
 			model.addObject("lists", list);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.debug("Error in getData", e.getStackTrace());
+			
 		}
 		return model;
 	}
@@ -41,7 +45,7 @@ public class MainController {
 				map.put(p.getId(), p);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.debug("Error in troubleshootCase", e.getStackTrace());
 		}
 		return map;
 	}
