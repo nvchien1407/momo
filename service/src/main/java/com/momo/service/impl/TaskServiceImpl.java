@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.momo.dao.TaskDao;
 import com.momo.domain.TaskDo;
+import com.momo.service.interfaces.CommonService;
+import com.momo.service.interfaces.Service;
 import com.momo.service.interfaces.TaskService;
+import com.momo.service.util.ServiceConstants;
 
 @Qualifier("taskService")
-public class TaskServiceImpl implements TaskService{
+public class TaskServiceImpl implements TaskService, Service{
 	
 	@Qualifier("taskDao")
 	private TaskDao taskDao;
@@ -20,6 +23,9 @@ public class TaskServiceImpl implements TaskService{
 		this.taskDao=taskDao;
 	}
 	
+	public TaskServiceImpl() {
+	}
+
 	public List<TaskDo> getTaskList() {
 		return taskDao.getAllTasks();
 	}
@@ -52,5 +58,14 @@ public class TaskServiceImpl implements TaskService{
 	 */
 	public void setTaskDao(TaskDao taskDao) {
 		this.taskDao = taskDao;
+	}
+
+	public String getName() {
+		return ServiceConstants.TASK_SERVICE;
+	}
+
+	public void execute() {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -105,14 +105,11 @@
 			<artifactId>resteasy-jackson-provider</artifactId>
 			<version>2.2.1.GA</version>
 		</dependency>
-		<dependency>
+			<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.6.1</version>
 		</dependency>
-		
-        
-		
 	</dependencies>
 	<build>
 		<finalName>MomoWorkBench</finalName>
