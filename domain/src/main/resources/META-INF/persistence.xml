@@ -5,9 +5,9 @@
 	<!-- <persistence-unit name="momoapp" transaction-type="RESOURCE_LOCAL"> -->
 	<persistence-unit name="momoapp" transaction-type="JTA">
 
-		<!-- <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> -->
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<jta-data-source>java:/jdbc/MomoDS</jta-data-source>
+		 <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
+		<jta-data-source>java:/MomoDS</jta-data-source>
 		<class>com.momo.domain.ProductDo</class>
 		<class>com.momo.domain.TaskDo</class>
 		<properties>

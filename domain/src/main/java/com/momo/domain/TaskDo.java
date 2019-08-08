@@ -11,6 +11,7 @@ import javax.persistence.Table;
 public class TaskDo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "task_id")
 	private int taskId;
 	@Column(name = "task_name")
 	private String taskName;
