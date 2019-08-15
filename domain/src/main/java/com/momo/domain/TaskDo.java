@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table(name = "tasks")
@@ -21,6 +22,15 @@ public class TaskDo {
 	private String taskPriority;
 	@Column(name = "task_status")
 	private String taskStatus;
+	@Column(name = "task_start_time")
+	private String startTime;
+	@Column(name = "task_end_time")
+	private String endTime;
+	@Column(name = "task_archived")
+	private boolean taskArchived;
+
+	public TaskDo() {
+	}
 
 	public int getTaskId() {
 		return taskId;
@@ -34,7 +44,8 @@ public class TaskDo {
 	public String toString() {
 		return "Task [task_id=" + taskId + ", task_name=" + getTaskName()
 				+ ", task_description=" + getTaskDesc() + ", task_priority="
-				+ getTaskPriority() + ",task_status=" + getTaskStatus() + "]";
+				+ getTaskPriority() + ",task_start_time="
+				+ getStartTime() + ",task_end_time=" + getEndTime()+ "]";
 	}
 
 
@@ -97,4 +108,27 @@ public class TaskDo {
 		this.taskName = taskName;
 	}
 
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+	public boolean isTaskArchived() {
+		return taskArchived;
+	}
+
+	public void setTaskArchived(boolean taskArchived) {
+		this.taskArchived = taskArchived;
+	}
 }

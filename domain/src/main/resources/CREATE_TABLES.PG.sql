@@ -28,8 +28,8 @@ CREATE TABLE tasks
   task_description text,
   task_priority character varying(20),
   task_status character varying(20),
-  task_start_time time without time zone NOT NULL,
-  task_end_time time without time zone NOT NULL,
+  task_start_time character varying(30),
+  task_end_time character varying(30),
   task_archived boolean DEFAULT false,
   CONSTRAINT "Task_pkey" PRIMARY KEY (task_id)
 )

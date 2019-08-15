@@ -48,12 +48,16 @@
 						{{task.taskName}}
 					<span class="action-status">{{task.taskStatus}}</span>
 					</a>
+					{{task.startTime}}
+                    {{task.endTime}}
 				</div>
 				<div ng-if="task.taskStatus=='ACTIVE'">				
 					<a href="#" class="uncheckedClass">
 						{{task.taskName}}
 						<span class="action-status">{{task.taskStatus}}</span>
 					</a>
+					{{task.startTime}}
+					{{task.endTime}}
 				</div>
 			</div>
 		</div>
@@ -93,6 +97,14 @@
 							</select>
 						</td>
 					</tr>
+					<tr>
+                        <td>Task Start Time:</td>
+                         <td><input type="date" ng-model="startTime"/></td>
+                    </tr>
+                    <tr>
+                        <td>Task End Time:</td>
+                        <td><input type="date" ng-model="endTime"/></td>
+                    </tr>
 					<tr>
 						<td><br/><button ng-click="addTask()" class="btn-panel-big">Add New Task</button></td>
 					</tr>

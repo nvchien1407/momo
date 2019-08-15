@@ -23,10 +23,10 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 	//add a new task
 	$scope.addTask = function addTask() {
 		if($scope.taskName=="" || $scope.taskDesc=="" || $scope.taskPriority == "" || $scope.taskStatus == ""){
-			alert("Insufficient Data! Please provide values for task name, description, priortiy and status");
+			alert("Insufficient Data! Please provide values for task name, description, priority and status");
 		}
 		else{
-		 $http.post(urlBase + '/tasks/insert/' +$scope.taskName+'/'+$scope.taskDesc+'/'+$scope.taskPriority+'/'+$scope.taskStatus).
+		 $http.post(urlBase + '/tasks/insert/' +$scope.taskName+'/'+$scope.taskDesc+'/'+$scope.taskPriority+'/'+$scope.taskStatus+'/'+$scope.startTime+'/'+$scope.endTime).
 		  success(function(data) {
 			 alert("Task added");
 			 $scope.tasks = data;	
@@ -34,6 +34,8 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 			 $scope.taskDesc="";
 			 $scope.taskPriority="";
 			 $scope.taskStatus="";
+			 $scope.startTime=null;
+			 $scope.endTime=null;
 			 $scope.toggle='!toggle';			 
 		    });
 		}
