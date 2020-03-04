@@ -12,7 +12,7 @@
 		<spring.version>5.1.9.RELEASE</spring.version>
 		<jstl.version>1.2</jstl.version>
 		<cgilib.version>2.2.2</cgilib.version>
-		<com.jackson.core-version>2.4.3</com.jackson.core-version>
+		<com.jackson.core-version>2.10.3</com.jackson.core-version>
 	</properties>
 
 	<dependencies>
